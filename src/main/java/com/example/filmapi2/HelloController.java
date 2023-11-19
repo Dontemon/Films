@@ -29,7 +29,7 @@ public class HelloController {
                 throw new RuntimeException(e);
             }
            // film_name.setText("hahaha");
-            film_name.setText(film.get_title()+ " \nранг: "+ film.get_Rank() + "\nДата выхода: "+ film.get_Released());
+            film_name.setText(film.getTitle()+ " \nранг: "+ film.getRank() + "\nДата выхода: "+ film.getReleased());
         });
 
 
