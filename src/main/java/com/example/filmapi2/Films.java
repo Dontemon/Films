@@ -32,4 +32,30 @@ public class Films {
 
         return this.films.get(rand);
     }
+
+    public ArrayList<Film> searchByTitle(String searchedTitle)  // поиск фильма по названию
+    {
+        ArrayList<Film> searchedFilms = new ArrayList<Film>();
+
+        for (int i = 0; i < this.films.size(); i++) // идём по фильмам во всём списке
+        {
+            if (this.films.get(i).getTitle().toLowerCase().contains(searchedTitle.toLowerCase())) {
+                searchedFilms.add(this.films.get(i));
+            }
+        }
+        return searchedFilms;
+    }
+
+    public ArrayList<Film> chooseGanre(String ganre)  //поиск фильма по жанру
+    {
+        ArrayList<Film> searchedFilms = new ArrayList<Film>();
+        for (int i = 0; i < this.films.size(); i++) {
+            for (int j = 0; j < this.films.get(i).getGanre().size(); j++) {
+                if (this.films.get(i).getGanre().get(j).equalsIgnoreCase(ganre)) {
+                    searchedFilms.add(this.films.get(i));
+                }
+            }
+        }
+        return searchedFilms;
+    }
 }
