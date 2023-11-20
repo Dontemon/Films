@@ -20,7 +20,7 @@ public class HelloApplication extends Application {
         //Scene scene = new Scene(fxmlLoader.load(), 425, 536);
         //FlowPane root2 = new FlowPane();
         stage.setTitle("Кино!");
-        stage.setScene(new Scene(root, 800,800));
+        stage.setScene(new Scene(root, 1000,1000));
         stage.setResizable(false);
         stage.show();
 

@@ -7,6 +7,7 @@ module com.example.filmapi2 {
     requires org.kordamp.bootstrapfx.core;
     requires java.net.http;
     requires org.json;
+    requires json.simple;
 
     opens com.example.filmapi2 to javafx.fxml;
     exports com.example.filmapi2;

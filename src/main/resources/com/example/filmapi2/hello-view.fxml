@@ -9,13 +9,13 @@
 
 <ScrollPane fx:id="scrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.filmapi2.HelloController">
   <content>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1400.0" prefWidth="800.0" style="-fx-background-color: #666;">
+    <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="1000.0" minWidth="1000.0" style="-fx-background-color: #666;">
          <children>
-            <TextField fx:id="anchorPane" layoutX="67.0" layoutY="31.0" prefHeight="47.0" prefWidth="328.0" promptText="Введите название фильма" />
-            <Button fx:id="searchButton" layoutX="409.0" layoutY="30.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="62.0" text="Поиск" />
-            <RadioButton fx:id="radioButton" layoutX="67.0" layoutY="99.0" mnemonicParsing="false" text="По возрастанию" />
-            <Label fx:id="label" alignment="TOP_CENTER" layoutX="14.0" layoutY="130.0" prefHeight="1400.0" prefWidth="790.0" style="-fx-background-color: white;" />
-            <Button fx:id="randomFilm" layoutX="223.0" layoutY="95.0" mnemonicParsing="false" text="Слуйчайный фильм" />
+            <TextField fx:id="anchorPane" layoutX="46.0" layoutY="37.0" prefHeight="47.0" prefWidth="328.0" promptText="Введите название фильма" />
+            <Button fx:id="searchButton" layoutX="394.0" layoutY="37.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="79.0" text="Поиск" />
+            <RadioButton fx:id="radioButton" layoutX="56.0" layoutY="103.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="112.0" text="По возрастанию" />
+            <Label fx:id="label" alignment="TOP_CENTER" layoutX="3.0" layoutY="170.0" maxHeight="100000.0" maxWidth="781.0" minHeight="37.0" minWidth="1000.0" style="-fx-background-color: white;" />
+            <Button fx:id="randomFilm" layoutX="217.0" layoutY="99.0" mnemonicParsing="false" text="Слуйчайный фильм" />
          </children></AnchorPane>
   </content>
 </ScrollPane>
