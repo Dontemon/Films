@@ -1,5 +1,8 @@
 package com.example.filmapi2;
 
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import java.net.URI;
@@ -37,13 +40,15 @@ public class HelloController {
     private Button searchButton;
     @FXML
     private Label label;
+    @FXML
+    private ComboBox Ganre;
 
 
     @FXML
     public void initialize() throws IOException, InterruptedException, ParseException {
                 HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://imdb-top-100-movies.p.rapidapi.com/"))
-                .header("X-RapidAPI-Key", "6fd86251efmsh620214799af6924p10c65cjsnba280e4b4145")
+                .header("X-RapidAPI-Key", "1eb8a47a4amsh3bbe2e389a0621dp10ad5cjsne2161a4dbe8d")
                 .header("X-RapidAPI-Host", "imdb-top-100-movies.p.rapidapi.com")
                 .method("GET", HttpRequest.BodyPublishers.noBody())
                 .build();
@@ -52,6 +57,9 @@ public class HelloController {
         Object obj = new JSONParser().parse(json);
         JSONArray jsonArray = (JSONArray)obj; //получаем массив данных из пришедшего ответа от сервера
         Films listFilms = new Films(); //создаем объект для хранения списка фильмов
+        ObservableList<String> list = FXCollections.observableArrayList( "Drama", "Crime", "Action", "Biography", "History", "Adventure", "Sci-fi", "Romance", "Mystery", "Thriller",
+                "War","Fantasy", "Horror", "Comedy","Western", "Animation","Family", null);
+        Ganre.setItems(list);
         for (Object film : jsonArray) //парсим массив на объекты
         {
             JSONObject jsonFilm = (JSONObject) film; //достаем массив жанров
@@ -64,7 +72,6 @@ public class HelloController {
             Film newFilm = new Film((String)jsonFilm.get("title"), (String)jsonFilm.get("id"), (String)jsonFilm.get("description"), (long)jsonFilm.get("rank"), (long)jsonFilm.get("year"), (String)jsonFilm.get("rating"), (String)jsonFilm.get("imdb_link"), (String)jsonFilm.get("image"), listGanre);
             listFilms.getListFilms().add(newFilm); //добавляем этот фильм в список фильмов
         }
-
             searchButton.setOnAction(event->{
             System.out.println("2");
             String searchField = anchorPane.getText();
@@ -72,13 +79,17 @@ public class HelloController {
             int height2 = 5;
             ArrayList<Film> searchedFilms = new ArrayList<Film>();
             searchedFilms = listFilms.searchByTitle(searchField);
+            System.out.println(Ganre.getValue());
+            if(Ganre.getValue() != null)
+            {
+                Films temp_films = new Films(searchedFilms, searchedFilms.size());
+                searchedFilms = temp_films.chooseGanre((String) Ganre.getValue());
+            }
 
             if(radioButton.isSelected()){
                 String s1 = new String();
-                //System.out.println("3");
                 for(int i = 0; i < searchedFilms.size(); i++)
                 {
-                   // s1 += "Фильм " + (i + 1) + "\n";
                     s1 += "ID: " + searchedFilms.get(i).getId() + "\n";
                     s1 += "Название: " + searchedFilms.get(i).getTitle()+ "\n";
                     s1 += "Описание: " + searchedFilms.get(i).getDescription()+ "\n";
@@ -96,7 +107,7 @@ public class HelloController {
                     label.resize(1000,height);
                     height2+=5;
                     height+=40;
-                    //System.out.println(s);
+
                 }
                 label.setText(s1);
                 s1 = "";
@@ -104,9 +115,8 @@ public class HelloController {
             else{
                 String s2 = new String();
                 System.out.println("4");
-                for(int i = searchedFilms.size() - 1; i > 0; i--)
+                for(int i = searchedFilms.size() - 1; i >= 0; i--)
                 {
-                   // s2 += "Фильм " + (i + 1) + "\n";
                     s2 += "ID: " + searchedFilms.get(i).getId() + "\n";
                     s2 += "Название: " + searchedFilms.get(i).getTitle()+ "\n";
                     s2 += "Описание: " + searchedFilms.get(i).getDescription()+ "\n";
@@ -124,7 +134,6 @@ public class HelloController {
                     label.resize(1000,height);
                     height2+=5;
                     height+=40;
-                    //System.out.println(s);
                 }
                 label.setText(s2);
                 s2 = "";
