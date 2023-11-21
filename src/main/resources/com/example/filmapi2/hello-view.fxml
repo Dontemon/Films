@@ -7,17 +7,33 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <ScrollPane fx:id="scrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="1000.0" minWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.filmapi2.HelloController">
   <content>
-    <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="1000.0" minWidth="1000.0" style="-fx-background-color: #666;">
+    <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="1000.0" minWidth="1000.0" style="-fx-background-color: #dfdfdf;">
          <children>
-            <TextField fx:id="anchorPane" layoutX="46.0" layoutY="37.0" prefHeight="47.0" prefWidth="328.0" promptText="Введите название фильма" />
-            <Button fx:id="searchButton" layoutX="394.0" layoutY="37.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="79.0" text="Поиск" />
-            <RadioButton fx:id="radioButton" layoutX="56.0" layoutY="103.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="112.0" text="По возрастанию" textFill="WHITE" />
-            <Label fx:id="label" alignment="TOP_CENTER" layoutX="3.0" layoutY="170.0" maxHeight="100000.0" maxWidth="781.0" minHeight="37.0" minWidth="1000.0" style="-fx-background-color: white;" />
-            <Button fx:id="randomFilm" layoutX="217.0" layoutY="99.0" mnemonicParsing="false" text="Слуйчайный фильм" />
-            <ComboBox fx:id="Ganre" layoutX="524.0" layoutY="37.0" onAction="#initialize" prefWidth="150.0" promptText="Жанры" visibleRowCount="4" />
+            <TextField fx:id="anchorPane" layoutX="46.0" layoutY="37.0" prefHeight="46.0" prefWidth="523.24" promptText="Введите название фильма" style="-fx-border-radius: 60; -fx-background-radius: 60; -fx-outline: none; -fx-background-color: #F8F8F8; -fx-border-color: #A7A7A7;" styleClass="text-field">
+               <font>
+                  <Font name="Arial Italic" size="17.0" />
+               </font></TextField>
+            <Button id="buttonSearch" fx:id="searchButton" layoutX="582.0" layoutY="37.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="106.0" style="-fx-background-color: #F8F8F8; -fx-background-radius: 60; -fx-cursor: pointer; -fx-border-radius: 60; -fx-border-color: #A7A7A7;" text="Поиск" textFill="#616161">
+               <font>
+                  <Font name="Arial Italic" size="17.0" />
+               </font></Button>
+            <RadioButton fx:id="radioButton" layoutX="46.0" layoutY="101.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="166.0" style="-fx-background-color: #dfdfdf;" text="По возрастанию" textFill="#616161">
+               <font>
+                  <Font size="17.0" />
+               </font></RadioButton>
+            <Label fx:id="label" alignment="TOP_CENTER" layoutX="3.0" layoutY="170.0" maxHeight="100000.0" maxWidth="2500.0" minHeight="1.0" minWidth="1000.0" style="-fx-background-color: #F8F8F8; -fx-background-radius: 10;" textFill="#616161">
+               <font>
+                  <Font name="Arial" size="17.0" />
+               </font></Label>
+            <Button fx:id="randomFilm" layoutX="293.0" layoutY="97.0" mnemonicParsing="false" style="-fx-background-color: #F8F8F8; -fx-background-radius: 60; -fx-border-radius: 60; -fx-border-color: #A7A7A7;" text="Случайный фильм" textFill="#616161">
+               <font>
+                  <Font name="Arial Italic" size="17.0" />
+               </font></Button>
+            <ComboBox fx:id="Ganre" layoutX="747.0" layoutY="38.0" onAction="#initialize" prefWidth="150.0" promptText="Жанры" visibleRowCount="4" />
          </children></AnchorPane>
   </content>
 </ScrollPane>
