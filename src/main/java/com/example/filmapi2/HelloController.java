@@ -1,6 +1,6 @@
 package com.example.filmapi2;
 
-import javafx.beans.Observable;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -15,12 +15,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Random;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
-import java.util.Vector;
-import java.util.Iterator;
+
 
 
 public class HelloController {
@@ -48,7 +43,7 @@ public class HelloController {
     public void initialize() throws IOException, InterruptedException, ParseException {
                 HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://imdb-top-100-movies.p.rapidapi.com/"))
-                .header("X-RapidAPI-Key", "1eb8a47a4amsh3bbe2e389a0621dp10ad5cjsne2161a4dbe8d")
+                .header("X-RapidAPI-Key", "16d95989d7msh6a78c28e0b3025bp17eb54jsn523d0d8aa0e4")
                 .header("X-RapidAPI-Host", "imdb-top-100-movies.p.rapidapi.com")
                 .method("GET", HttpRequest.BodyPublishers.noBody())
                 .build();
@@ -60,6 +55,7 @@ public class HelloController {
         ObservableList<String> list = FXCollections.observableArrayList( "Drama", "Crime", "Action", "Biography", "History", "Adventure", "Sci-fi", "Romance", "Mystery", "Thriller",
                 "War","Fantasy", "Horror", "Comedy","Western", "Animation","Family", null);
         Ganre.setItems(list);
+
         for (Object film : jsonArray) //парсим массив на объекты
         {
             JSONObject jsonFilm = (JSONObject) film; //достаем массив жанров
@@ -85,8 +81,8 @@ public class HelloController {
                 Films temp_films = new Films(searchedFilms, searchedFilms.size());
                 searchedFilms = temp_films.chooseGanre((String) Ganre.getValue());
             }
+            if (!radioButton.isSelected()) {
 
-            if(radioButton.isSelected()){
                 String s1 = new String();
                 for(int i = 0; i < searchedFilms.size(); i++)
                 {

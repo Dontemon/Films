@@ -1,6 +1,8 @@
 package com.example.filmapi2;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Random;
 
 public class Films {
@@ -55,4 +57,5 @@ public class Films {
         }
         return searchedFilms;
     }
+
 }
